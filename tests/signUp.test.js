@@ -4,6 +4,7 @@ import bcrypt from 'bcrypt'
 import supertest from 'supertest'
 
 beforeAll(async () =>{
+    await connection.query(`DELETE FROM users;`)
     const user = {
         email: 'teste@gmail.com',
         name: 'teste',
@@ -16,7 +17,6 @@ beforeAll(async () =>{
 
 afterAll(async () => {
     await connection.query(`DELETE FROM users;`)
-    connection.end()
 })
 
 describe('POST /sign-up', () => {
@@ -37,8 +37,6 @@ describe('POST /sign-up', () => {
             name: 'teste22',
             password: 'senhasegura'
         }
-
-        await supertest(app).post('/sign-up').send(user)
 
         const result = await supertest(app).post('/sign-up').send(user)
         

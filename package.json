@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test npx jest"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "faker": "^5.5.3",
     "jest": "^27.3.1",
     "pg": "^8.7.1",
     "supertest": "^6.1.6",
